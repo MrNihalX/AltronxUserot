@@ -87,8 +87,8 @@ def get_text(message: Message) -> [None, str]:
    
 
 
-@Client.on_message(filters.user(SUDO_USERS) & command(["loveraid", "lraid", "lr"]))
-@Client.on_message(filters.me & command(["loveraid", "lraid", "lr"]))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command(["loveraid", "lraid", "lr"]))
+@Client.on_message(filters.me & filters.command(["loveraid", "lraid", "lr"]))
 async def replyramd(client: Client, message: Message):
     await message.delete()
     ff = await message.reply_text("`Processing..`")
@@ -127,8 +127,8 @@ async def replyramd(client: Client, message: Message):
     await ff.edit(gbanned)
     
 
-@Client.on_message(filters.user(SUDO_USERS) & command(["dloveraid", "dlraid", "dlr"]))
-@Client.on_message(filters.me & command(["dloveraid", "dlraid", "dlr"]))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command(["dloveraid", "dlraid", "dlr"]))
+@Client.on_message(filters.me & filters.command(["dloveraid", "dlraid", "dlr"]))
 async def dreplyramd(client: Client, message: Message):
     await message.delete()
     ff = await message.reply_text("`Processing..`")
