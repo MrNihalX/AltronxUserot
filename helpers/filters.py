@@ -6,6 +6,4 @@ other_filters = filters.group & ~ filters.edited & ~ filters.via_bot & ~ filters
 other_filters2 = filters.private & ~ filters.edited & ~ filters.via_bot & ~ filters.forwarded
 hero_filters = filters.me & filters.user(SUDO_USERS)
 
-def command(commands: Union[str, List[str]]):
-    return filters.command(commands, COMMAND_PREFIXES)
 
