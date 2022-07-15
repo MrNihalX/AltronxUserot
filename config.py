@@ -26,7 +26,6 @@ BOT_USERNAME = getenv("BOT_USERNAME")
 SESSION = getenv("SESSION")
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/TheAltronX/AltronUserbot")
 DB_URL = getenv("DATABASE_URL", "")
-COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
 
 MONGO_DB = getenv("MONGO_DB", "")
 if MONGO_DB:
