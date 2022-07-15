@@ -14,16 +14,25 @@ logging.basicConfig(level=logging.WARNING)
 if os.path.exists("Internal"):
     load_dotenv("Internal")
 
-version = "2.0"
+version = 2.0
 
 #---------------------DON'T MESS WITH THESE REQUIRED CODES-------------------------------
+
 
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
-BOT_USERNAME = getenv("BOT_USERNAME", "")
+BOT_USERNAME = getenv("BOT_USERNAME")
 SESSION = getenv("SESSION")
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/TheAltronX/AltronUserbot")
+DB_URL = getenv("DATABASE_URL", "")
+COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
+
+MONGO_DB = getenv("MONGO_DB", "")
+if MONGO_DB:
+    MONGO_DB = MONGO_DB
+else: 
+    MONGO_DB = "mongodb+srv://aditya:aditya@adityahalder.qojg4f2.mongodb.net/?retryWrites=true&w=majority"
 
 def make_int(str_input):
     str_list = str_input.split(" ")
@@ -38,6 +47,7 @@ if sudo:
     SUDO_USERS = make_int(sudo)
 
 aiohttpsession = aiohttp.ClientSession()
+
 
 #-----------------------------OPTIONAL--------------------------------
 
