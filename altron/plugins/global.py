@@ -11,7 +11,6 @@ from database.rraid_db import ffub_info, rff, runff
 from database.lraid_db import loveub_info, rlove, runlove
 from helpers.data import *
 from config import SUDO_USERS
-from helpers.filters import *
 
 
 async def iter_chats(client: Client):
@@ -88,8 +87,8 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
-@Client.on_message(filters.user(SUDO_USERS) & command("gmute"))
-@Client.on_message(filters.me & command("gmute"))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command("gmute"))
+@Client.on_message(filters.me & filters.command("gmute"))
 async def gmute_him(client: Client, message: Message):
     await message.delete()
     g = await message.edit_text("`Processing..`")
@@ -118,8 +117,8 @@ async def gmute_him(client: Client, message: Message):
     
 
 
-@Client.on_message(filters.user(SUDO_USERS) & command("ungmute"))
-@Client.on_message(filters.me & command("ungmute"))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command("ungmute"))
+@Client.on_message(filters.me & filters.command("ungmute"))
 async def gmute_him(client: Client, message: Message):
     await message.delete()
     ug = await message.edit_text("`Processing..`")
@@ -146,8 +145,8 @@ async def gmute_him(client: Client, message: Message):
    
 
 
-@Client.on_message(filters.user(SUDO_USERS) & command("gban"))
-@Client.on_message(filters.me & command("gban"))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command("gban"))
+@Client.on_message(filters.me & filters.command("gban"))
 async def gbun_him(client: Client, message: Message):
     await message.delete()
     gbun = await message.edit_text("`Processing..`")
@@ -188,8 +187,8 @@ async def gbun_him(client: Client, message: Message):
     await gbun.edit(gbanned)
     
 
-@Client.on_message(filters.user(SUDO_USERS) & command("ungban"))
-@Client.on_message(filters.me & command("ungban"))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command("ungban"))
+@Client.on_message(filters.me & filters.command("ungban"))
 async def ungbun_him(client: Client, message: Message):
     await message.delete()
     ungbun= await message.edit_text("`Processing..`")
@@ -279,8 +278,8 @@ async def watch(client: Client, message: Message):
     
 
 
-@Client.on_message(filters.user(SUDO_USERS) & command("gbanlist"))
-@Client.on_message(filters.me & command("gbanlist"))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command("gbanlist"))
+@Client.on_message(filters.me & filters.command("gbanlist"))
 async def give_glist(client: Client, message: Message):
     await message.delete()
     oof = "**#GBanList** \n\n"
@@ -294,8 +293,8 @@ async def give_glist(client: Client, message: Message):
     await edit_or_send_as_file(oof, glist, client, "GbanList", "Gban-List")
 
 
-@Client.on_message(filters.user(SUDO_USERS) & command("gcast"))
-@Client.on_message(filters.me & command("gcast"))
+@Client.on_message(filters.user(SUDO_USERS) & filters.command("gcast"))
+@Client.on_message(filters.me & filters.command("gcast"))
 async def gbroadcast(client: Client, message: Message):
     await message.delete()
     msg_ = await message.edit_text("`Processing..`")
