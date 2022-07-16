@@ -3,6 +3,7 @@ import sys
 from os import getenv
 import logging
 import aiohttp
+from motor.motor_asyncio import AsyncIOMotorClient as Altron
 from dotenv import load_dotenv
 from pyrogram import Client
 from pyrogram.types import *
@@ -14,7 +15,6 @@ logging.basicConfig(level=logging.WARNING)
 if os.path.exists("Internal"):
     load_dotenv("Internal")
 
-version = 2.0
 
 #---------------------DON'T MESS WITH THESE REQUIRED CODES-------------------------------
 
@@ -25,7 +25,6 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_USERNAME = getenv("BOT_USERNAME")
 SESSION = getenv("SESSION")
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/TheAltronX/AltronUserbot")
-DB_URL = getenv("DATABASE_URL", "")
 
 MONGO_DB = getenv("MONGO_DB", "")
 if MONGO_DB:
@@ -47,6 +46,11 @@ if sudo:
 
 aiohttpsession = aiohttp.ClientSession()
 
+
+#------------------------------------MONGO DATABASE--------------------------------------------
+
+MONGODB_CLI = Altron(MONGO_DB)
+db = MONGODB_CLI.Hero
 
 #-----------------------------OPTIONAL--------------------------------
 
