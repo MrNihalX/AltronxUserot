@@ -4,11 +4,11 @@ import random
 from typing import Tuple
 from pyrogram import Client, filters
 from traceback import format_exc
-from config import SUDO_USERS
+from config import *
 from helpers.data import *
-from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import Message
-from database import loveub_info, rlove, runlove
+from pyrogram.errors import *
+from pyrogram.types import *
+from database import *
 from altron.plugins import *
 
 

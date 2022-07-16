@@ -12,6 +12,7 @@ from .mraid import *
 from .ping import *
 from .play import *
 from .raid import *
+from .raid_watch import *
 from .restart import *
 from .rraid import *
 from .spam import *
