@@ -1,7 +1,7 @@
 # CREATED BY @TEAMALTRON
 
-from .gban import *
-from .gmute import *
+
+from .text import *
 from .rraid import *
 from .lraid import *
 from .sudo import *
