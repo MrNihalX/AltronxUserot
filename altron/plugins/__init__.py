@@ -1,6 +1,6 @@
 # CREATED BY @TEAMALTRON
 
-from .admins import *
+# from .admins import *
 from .cleaner import *
 from .dmraid import *
 from .globel import *
