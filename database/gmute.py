@@ -8,7 +8,7 @@ async def is_gmuted(user):
     if not kk:
         return False
     else:
-        return True
+        return kk["reason"]
 
 
 async def gmute(user, reason="#GMuted"):
@@ -17,3 +17,4 @@ async def gmute(user, reason="#GMuted"):
 
 async def ungmute(user):
     await gmute.delete_one({"user": user})
+
