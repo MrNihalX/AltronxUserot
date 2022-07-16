@@ -3,7 +3,6 @@
 # from .admins import *
 from .cleaner import *
 from .dmraid import *
-from .globel import *
 from .hang import *
 from .help import *
 from .Inviteall import *
