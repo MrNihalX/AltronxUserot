@@ -8,7 +8,7 @@ from config import SUDO_USERS
 from helpers.data import *
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
-from database.lraid_db import loveub_info, rlove, runlove
+from database import loveub_info, rlove, runlove
 from altron.plugins import *
 
 
