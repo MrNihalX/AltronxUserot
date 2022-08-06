@@ -6,6 +6,13 @@ from pyrogram import Client
 from os import system, execle, environ
 from helpers.decorators import errors, sudo_users_only
 
+__MODULE__ = "Rᴇsᴛᴀʀᴛ"
+__HELP__ = f"""
+**🖤 Rᴇsᴛᴀʀᴛ Mᴏᴅᴜʟᴇ 🖤**
+
+`!restart` - __Tᴏ Rᴇsᴛᴀʀᴛ Yᴏᴜʀ UsᴇʀBᴏᴛ__
+
+"""
 
 @Client.on_message(commandpro(["R", "!restart", "Restart", "/restart"]))
 @errors

@@ -5,10 +5,21 @@ from pyrogram import Client, filters
 from helpers.data import *
 from config import *
 
+__MODULE__ = "Rᴀɪᴅ"
+__HELP__ = f"""
+**🖤 Rᴀɪᴅ Mᴏᴅᴜʟᴇ 🖤**
+
+`!raid` - __Tᴏ Sᴇɴᴅ Aʙᴜsɪᴠᴇ Wᴏʀᴅs Tᴏ A Pᴇʀsᴏɴ Iɴ A Cʜᴀᴛ__
+
+`!sraid` - __Tᴏ Sᴇɴᴅ Sᴏɴɢ Rᴀɪᴅ__
+
+`!mraid` - __Tᴏ Sᴇɴᴅ Fʟɪʀᴛɪɴɢ Rᴀɪᴅ__
+
+"""
 
 @Client.on_message(filters.user(SUDO_USERS) & filters.command(["mraid"], [".", "/", "!"]))
 async def dmraid(xspam: Client, e: Message):
-      hero = await e.reply_text("😈 ᴜsᴀɢᴇ:\n !mraid 10 <ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ ᴏʀ ᴜsᴇʀɴᴀᴍᴇ>")   
+      hero = await e.reply_text("⚡ ᴜsᴀɢᴇ:\n !mraid 10 <ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ ᴏʀ ᴜsᴇʀɴᴀᴍᴇ>")   
       TheAltronX = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
       if len(TheAltronX) == 2:
           ok = await xspam.get_users(TheAltronX[1])

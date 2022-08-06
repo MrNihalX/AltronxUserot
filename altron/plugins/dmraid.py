@@ -5,6 +5,13 @@ from random import choice
 from helpers.data import *
 from config import *
 
+__MODULE__ = "DM Rᴀɪᴅ"
+__HELP__ = f"""
+**🖤 DM Rᴀɪᴅ Mᴏᴅᴜʟᴇ 🖤**
+
+`!dmraid` - __Tᴏ Sᴇɴᴅ Aʙᴜsɪᴠᴇ Wᴏʀᴅs Iɴ Aɴᴏᴛʜᴇʀ Usᴇʀ's Iɴʙᴏx__
+
+"""
 
 @Client.on_message(filters.user(SUDO_USERS) & filters.command(["dmraid"], [".", "/", "!"]))
 async def dmraid(xspam: Client, e: Message):

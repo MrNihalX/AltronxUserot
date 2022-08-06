@@ -4,6 +4,13 @@ from pyrogram.types import Message
 from helpers.command import commandpro
 from helpers.decorators import errors, sudo_users_only
 
+__MODULE__ = "Cʟᴇᴀɴ"
+__HELP__ = f"""
+**🖤 Cʟᴇᴀɴ Mᴏᴅᴜʟᴇ 🖤**
+
+`!cl` - __Tᴏ Cʟᴇᴀɴ Jᴜɴᴋ Fɪʟᴇs Oғ Yᴏᴜʀ UsᴇʀBᴏᴛ__
+
+"""
 
 @Client.on_message(commandpro(["/cl", "!cl", "Cl", "/clean", "!clean"]))
 @errors

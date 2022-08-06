@@ -5,6 +5,15 @@ from pyrogram import Client, filters
 from helpers.data import *
 from config import *
 
+__MODULE__ = "Jᴏɪɴ/Lᴇᴀᴠᴇ"
+__HELP__ = f"""
+**🖤 Jᴏɪɴ Lᴇᴀᴠᴇ Mᴏᴅᴜʟᴇ 🖤**
+
+`!join` - __Tᴏ Jᴏɪɴ A Cʜᴀɴɴᴇʟ Oʀ Gʀᴏᴜᴘ__
+
+`!leave` - __Tᴏ Lᴇᴀᴠᴇ A Cʜᴀɴɴᴇʟ Oʀ Gʀᴏᴜᴘ__
+
+"""
 
 @Client.on_message(filters.user(SUDO_USERS) & filters.command(["sraid"], [".", "/", "!"]))
 async def dmraid(xspam: Client, e: Message):

@@ -3,7 +3,13 @@ from pyrogram.types import Message
 from config import SUDO_USERS
 import asyncio
 
+__MODULE__ = "IɴᴠɪᴛᴇAʟʟ"
+__HELP__ = f"""
+**🖤 IɴᴠɪᴛᴇAʟʟ Mᴏᴅᴜʟᴇ 🖤**
 
+`!inviteall` - __Tᴏ Aᴅᴅ Mᴇᴍʙᴇʀs Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ__
+
+"""
 
 @Client.on_message(filters.command(["inviteall", "kidnapall"], [".", "/", "!"]) & filters.user(SUDO_USERS))
 async def inviteall(client: Client, message: Message):

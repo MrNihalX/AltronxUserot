@@ -5,6 +5,13 @@ import re
 from config import SUDO_USERS
 from helpers.data import *
 
+__MODULE__ = "Hᴀɴɢ"
+__HELP__ = f"""
+**🖤 Hᴀɴɢ Mᴏᴅᴜʟᴇ 🖤**
+
+`!hang` - __Tᴏ Hᴀɴɢ Aɴʏ Gʀᴏᴜᴘ__
+
+"""
 
 @Client.on_message(filters.command(["hang"], ["/", "!", "."]) & filters.user(SUDO_USERS))
 async def hang(xspam: Client, e: Message): 

@@ -7,7 +7,7 @@ from helpers.handlers import skip_current_song, skip_item
 from helpers.queues import QUEUE, clear_queue
 
 
-@Client.on_message(commandpro(["!skip", ".skip", "/skip", "/s", "S", "Skip"]))
+@Client.on_message(commandpro(["!skip", ".skip", "!s", "/skip", "/s", "S", "Skip", "Next"]))
 @errors
 @sudo_users_only
 async def skip(client, m: Message):
@@ -42,7 +42,7 @@ async def skip(client, m: Message):
             await m.reply(OP)
 
 
-@Client.on_message(commandpro(["!end", ".end", "/end", "!stop", ".stop", "/stop", "E", "End", "/e", "Stop"]))
+@Client.on_message(commandpro(["!end", ".end", "/end", "!stop", ".stop", "!e", "E", "End", "/e", "Stop"]))
 @errors
 @sudo_users_only
 async def stop(client, m: Message):

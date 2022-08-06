@@ -6,6 +6,13 @@ from pyrogram.types import Message
 from pyrogram import filters, Client
 from config import UPSTREAM_REPO, SUDO_USERS
 
+__MODULE__ = "Uᴘᴅᴀᴛᴇ"
+__HELP__ = f"""
+**🖤 Uᴘᴅᴀᴛᴇ Mᴏᴅᴜʟᴇ 🖤**
+
+`!update` - __Tᴏ Uᴘᴅᴀᴛᴇ Aʟᴛʀᴏɴ Usᴇʀʙᴏᴛ__
+
+"""
 
 def gen_chlog(repo, diff):
     upstream_repo_url = Repo().remotes[0].config_reader.get("url").replace(".git", "")

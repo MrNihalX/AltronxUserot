@@ -1,6 +1,7 @@
 import asyncio
 import random
 from helpers.command import commandpro
+from helpers.handlers import bash
 from helpers.decorators import errors, sudo_users_only
 from pyrogram.types import Message
 from pytgcalls import StreamType
@@ -9,6 +10,24 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio
 from youtubesearchpython import VideosSearch
 from config import client, call_py
 from helpers.queues import QUEUE, add_to_queue, get_queue
+
+
+__MODULE__ = "Pʟᴀʏ"
+__HELP__ = f"""
+**🖤 Pʟᴀʏ Mᴏᴅᴜʟᴇ 🖤**
+
+`!p` - __Tᴏ Pʟᴀʏ Aᴜᴅɪᴏ Sᴏɴɢ Iɴ Vᴏɪᴄᴇ Cʜᴀᴛ__
+
+`!v` - __Tᴏ Pʟᴀʏ Vɪᴅᴇᴏ Sᴏɴɢ Iɴ Vᴏɪᴄᴇ Cʜᴀᴛ__
+
+`!s` - __Tᴏ Sᴋɪᴘ Cᴜʀʀᴇɴᴛ Pʟᴀʏɪɴɢ Sᴏɴɢ__
+
+`!e` - __Tᴏ Eɴᴅ Sᴏɴɢ Iɴ Vᴏɪᴄᴇ Cʜᴀᴛ__
+
+`!pause` - __Tᴏ Pᴀᴜsᴇ Sᴏɴɢ Iɴ Vᴏɪᴄᴇ Cʜᴀᴛ__
+
+`!resume` - __Tᴏ Rᴇsᴜᴍᴇ Sᴏɴɢ Iɴ Vᴏɪᴄᴇ Cʜᴀᴛ__
+"""
 
 # music player
 def ytsearch(query):
@@ -27,22 +46,13 @@ def ytsearch(query):
         return 0
 
 
-async def ytdl(link):
-    proc = await asyncio.create_subprocess_exec(
-        "yt-dlp",
-        "-g",
-        "-f",
-        # CHANGE THIS BASED ON WHAT YOU WANT
-        "bestaudio",
-        f"{link}",
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE,
+async def ytdl(link: str):
+    stdout, stderr = await bash(
+        f'yt-dlp -g -f "best[height<=?720][width<=?1280]" {link}'
     )
-    stdout, stderr = await proc.communicate()
     if stdout:
-        return 1, stdout.decode().split("\n")[0]
-    else:
-        return 0, stderr.decode()
+        return 1, stdout
+    return 0, stderr
 
 
 @client.on_message(commandpro(["!play", "/p", "!p", "$p", "/play", "P", "Play"]))
@@ -186,7 +196,7 @@ async def playfrom(client, m: Message):
                     )
             await hmm.delete()
             await m.reply(
-                f"➕ 𝑨𝒅𝒅𝒊𝒏𝒈 {lmt} 𝒔𝒐𝒏𝒈𝒔 𝒊𝒏𝒕𝒐 𝒒𝒖𝒆𝒖𝒆\n𝒄𝒍𝒊𝒄𝒌 `!playlist` 𝒕𝒐 𝒗𝒊𝒆𝒘 𝒑𝒍𝒂𝒚𝒍𝒊𝒔𝒕"
+                f"➕ 𝑨𝒅𝒅𝒊𝒏𝒈 {lmt} 𝒔𝒐𝒏𝒈𝒔 𝒊𝒏𝒕𝒐 𝒒𝒖𝒆𝒖𝒆\n𝒄𝒍𝒊𝒄𝒌 `!playlist` 𝒕𝒐 𝒗𝒊𝒆𝒘 𝒑𝒍𝒂𝒚𝒍𝒊𝒔𝒕**"
             )
         except Exception as e:
             await hmm.edit(f"**𝑬𝒓𝒓𝒐𝒓....** \n`{e}`")
