@@ -23,6 +23,7 @@ API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_USERNAME = getenv("BOT_USERNAME", "")
 SESSION = getenv("SESSION")
+HEROKU_MODE = getenv("HEROKU_MODE", "ENABLE") 
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/TheAltronX/AltronUserbot")
 
 def make_int(str_input):
