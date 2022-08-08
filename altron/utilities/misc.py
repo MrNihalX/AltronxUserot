@@ -1,7 +1,7 @@
 import socket
 from pyrogram import filters
 from config import *
-from altron.utilities import pymongodb
+from altron.utilities import mongodb
 from ..logger import LOGGER
 
 SUDOERS = filters.user()
@@ -14,7 +14,7 @@ def sudo():
         for user_id in OWNER:
             SUDOERS.add(user_id)
     else:
-        sudoersdb = pymongodb.sudoers
+        sudoersdb = mongodb.sudoers
         sudoers = sudoersdb.find_one({"sudo": "sudo"})
         sudoers = [] if not sudoers else sudoers["sudoers"]
         for user_id in OWNER:
