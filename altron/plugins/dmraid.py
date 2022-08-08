@@ -2,7 +2,7 @@ from pyrogram import filters, Client
 from pyrogram.types import *
 import asyncio
 from random import choice
-from helpers.data import *
+from altron.utilities.data import *
 from config import *
 
 __MODULE__ = "DM Rᴀɪᴅ"
