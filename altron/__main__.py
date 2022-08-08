@@ -13,6 +13,7 @@ from config import SESSION1, SESSION2, SESSION3, SESSION4, SESSION5
 from altron import client1, client2, client3, client4, client5, BOT_ID, BOT_NAME, OWNER_ID, bot
 from altron.modules.client import call_py1, call_py2, call_py3, call_py4, call_py5
 from altron.plugins import ALL_MODULES
+from altron.utilities.misc import SUDOERS
 from altron.utilities.inline import paginate_modules
 
 loop = asyncio.get_event_loop()
