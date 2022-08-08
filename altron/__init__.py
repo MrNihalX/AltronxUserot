@@ -60,23 +60,6 @@ async def initiate_bot():
         console.print("┌ [red]Booting Up The Clients...\n")
         await bot.start()
         console.print("└ [green]Booted Bot Client")
-        console.print("\n┌ [red]Booting UserBot Clients...")
-        if SESSION1 != "None":
-            await client1.start()
-            console.print("├ [yellow]Booted Assistant Client")
-        if SESSION2 != "None":
-            await client2.start()
-            console.print("├ [yellow]Booted Assistant Client 2")
-        if SESSION3 != "None":
-            await client3.start()
-            console.print("├ [yellow]Booted Assistant Client 3")
-        if SESSION4 != "None":
-            await client4.start()
-            console.print("├ [yellow]Booted Assistant Client 4")
-        if SESSION5 != "None":
-            await client5.start()
-            console.print("├ [yellow]Booted Assistant Client 5")
-        console.print("└ [green]Assistant Clients Booted Successfully!")
         if "raw_files" not in listdir():
             mkdir("raw_files")
         if "downloads" not in listdir():

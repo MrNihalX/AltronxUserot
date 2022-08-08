@@ -61,6 +61,7 @@ async def initiate_bot():
     )
     if SESSION1 != "None":
         try:
+            await client1.start()
             await client1.join_chat("Modmenumaking")
             await client1.join_chat("Yaaro_ki_yaarii")
         except:
@@ -68,6 +69,7 @@ async def initiate_bot():
         console.print(f"├[red] USERBOT 1 STARTED")
     if SESSION2 != "None":
         try:
+            await client2.start()
             await client2.join_chat("modmenumaking")
             await client2.join_chat("yaaro_ki_yaarii")
         except:
@@ -75,6 +77,7 @@ async def initiate_bot():
         console.print(f"├[red] USERBOT 2 STARTED")
     if SESSION3 != "None":
         try:
+            await client3.start()
             await client3.join_chat("modmenumaking")
             await client3.join_chat("yaaro_ki_yaarii")
         except:
@@ -82,6 +85,7 @@ async def initiate_bot():
         console.print(f"├[red] USERBOT 3 STARTED")
     if SESSION4 != "None":
         try:
+            await client4.start()
             await client4.join_chat("modmenumaking")
             await client4.join_chat("yaaro_ki_yaarii")
         except:
@@ -89,6 +93,7 @@ async def initiate_bot():
         console.print(f"├[red] USERBOT 4 STARTED")
     if SESSION5 != "None":
         try:
+            await client5.start()
             await client5.join_chat("modmenumaking")
             await client5.join_chat("Yaaro_ki_yaarii")
         except:
