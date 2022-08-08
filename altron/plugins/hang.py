@@ -3,7 +3,7 @@ from pyrogram import filters, Client
 from pyrogram.types import *
 import re
 from config import SUDO_USERS
-from helpers.data import *
+from altron.utilities.data import *
 
 __MODULE__ = "Hᴀɴɢ"
 __HELP__ = f"""
