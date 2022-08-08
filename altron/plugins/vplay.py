@@ -1,7 +1,7 @@
 import asyncio
 from altron.modules.helpers.command import commandpro
 from altron.modules.helpers.decorators import errors, sudo_users_only
-from altron.modules.client import *
+from altron.modules.client import client1 as client, call_py1 as call_py
 from pyrogram.types import Message
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioVideoPiped
