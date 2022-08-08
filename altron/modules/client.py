@@ -11,7 +11,7 @@ bot = Client(":memory:", API_ID, API_HASH, bot_token=BOT_TOKEN)
 #-------------------------CLIENTS-----------------------------
 
 if SESSION1:
-    client1 = Client(SESSION, API_ID, API_HASH, plugins=dict(root="altron.plugins"))
+    client1 = Client(SESSION1, API_ID, API_HASH, plugins=dict(root="altron.plugins"))
     call_py1 = PyTgCalls(client, overload_quiet_mode=False)
 else:
     client1 = None
