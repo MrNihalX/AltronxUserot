@@ -1,7 +1,7 @@
 import asyncio
 import random
 from altron.modules.helpers.command import commandpro
-from altron.modules.helpers.handlers import bash
+from altron.utilities.utils import bash
 from altron.modules.helpers.decorators import errors, sudo_users_only
 from pyrogram.types import Message
 from pytgcalls import StreamType
