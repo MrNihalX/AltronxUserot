@@ -8,7 +8,7 @@ from pytgcalls import idle
 from rich.console import Console
 from rich.table import Table
 from youtubesearchpython import VideosSearch
-
+from altron.modules.helpers.filters import command
 from config import SESSION1, SESSION2, SESSION3, SESSION4, SESSION5
 from altron import client1, client2, client3, client4, client5, BOT_ID, BOT_NAME, OWNER_ID, bot
 from altron.modules.client import call_py1, call_py2, call_py3, call_py4, call_py5
