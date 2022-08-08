@@ -14,7 +14,6 @@ from config import *
 from altron.modules.helpers.filters import *
 from altron.modules.helpers.decorators import errors, sudo_users_only
 from altron.modules.helpers.program import get_arg
-from altron.modules.helpers.admins import CheckAdmin
 
 
 @Client.on_message(command("gcast"))
