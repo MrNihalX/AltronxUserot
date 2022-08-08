@@ -2,7 +2,7 @@ import os
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from altron.modules.clientbot.clientbot import client
+from altron.modules.client import client1 as client
 from altron.modules.helpers.command import commandpro
 from altron.modules.helpers.decorators import sudo_users_only, errors
 from altron.utilities.misc import SUDOERS
