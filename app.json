@@ -48,7 +48,6 @@
         "HEROKU_MODE": {
             "description": "Your Log Group ID",
             "required": false
-            "value": "ENABLE"
         }
     },
     "buildpacks": [
