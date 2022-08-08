@@ -101,15 +101,15 @@ async def initiate_bot():
             pass
         console.print(f"├[red] USERBOT 5 STARTED")
     console.print(f"└[red] ALTRON USERBOT BOOT COMPLETED")
-    if SESSION1 != "None":
+    if call_py1:
         await call_py1.start()
-    if SESSION2 != "None":
+    if call_py2:
         await call_py2.start()
-    if SESSION3 != "None":
+    if call_py3:
         await call_py3.start()
-    if SESSION4 != "None":
+    if call_py4:
         await call_py4.start()
-    if SESSION5 != "None":
+    if call_py5:
         await call_py5.start()
     await idle()
     console.print(f"\n[red] STOPPING BOT")
