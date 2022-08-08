@@ -21,8 +21,8 @@ async def watch_raids(client: Client, message: Message):
     if not message.from_user:
         return
     user = message.from_user.id
-    veer = random.choice(REPLY_RAID)
-    love = random.choice(LOVER_RAID)
+    veer = random.choice(RAID)
+    love = random.choice(MRAID)
     if int(user) in VERIFIED_USERS:
         return
     elif int(user) in SUDO_USERS:
