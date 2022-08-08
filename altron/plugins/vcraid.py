@@ -11,7 +11,8 @@ from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio
 from altron.modules.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
-from altron.modules.client import bot, client1 as client, call_py1 as call_py, call_py2, call_py3, call_py4, call_py5, SUDO_USERS
+from altron.modules.client import bot, client1 as client, call_py1 as call_py, call_py2, call_py3, call_py4, call_py5
+from config import *
 
 
 __MODULE__ = "VC Rᴀɪᴅ"
