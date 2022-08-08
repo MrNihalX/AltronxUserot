@@ -1,25 +1,27 @@
 import os
-import sys
-from pyrogram.types import Message
-from helpers.command import commandpro
-from pyrogram import Client
-from os import system, execle, environ
-from helpers.decorators import errors, sudo_users_only
+import shutil
+import asyncio
+from pyrogram.types import *
+from pyrogram import *
+from altron.modules.helpers.filters import command
+from altron.utilities.misc import SUDOERS
+
+
+@Client.on_message(command(["restart", "reboot"]) & filters.me)
+async def restart(client, m: Message):
+    reply = await m.edit("**🔁 Rᴇsᴛᴀʀᴛɪɴɢ 🔥 ...**")
+    
+    await reply.edit(
+        "🥀 SᴜᴄᴄᴇssFᴜʟʟʏ RᴇSᴛᴀʀᴛᴇᴅ\nGᴇɴɪᴜs シ︎ UsᴇʀBᴏᴛ 🔥 ...\n\n💕 Pʟᴇᴀsᴇ Wᴀɪᴛ 1-2 MɪN Fᴏʀ\nLᴏᴀᴅ Usᴇʀ Pʟᴜɢɪɴs ✨ ...</b>"
+    )
+    os.system(f"kill -9 {os.getpid()} && python3 -m modules")
+
+
+
+
 
 __MODULE__ = "Rᴇsᴛᴀʀᴛ"
 __HELP__ = f"""
-**🖤 Rᴇsᴛᴀʀᴛ Mᴏᴅᴜʟᴇ 🖤**
-
-`!restart` - __Tᴏ Rᴇsᴛᴀʀᴛ Yᴏᴜʀ UsᴇʀBᴏᴛ__
+`.restart` **- Usᴇ Tʜɪs Cᴏᴍᴍᴀɴᴅ Tᴏ Rᴇsᴛᴀʀᴛ Gᴇɴɪᴜs UsᴇʀBᴏᴛ**
 
 """
-
-@Client.on_message(commandpro(["R", "!restart", "Restart", "/restart"]))
-@errors
-@sudo_users_only
-async def restart_bot(_, message: Message):
-    msg = await message.reply("`ʀᴇsᴛᴀʀᴛɪɴɢ ʙᴏᴛ...`")
-    args = [sys.executable, "main.py"]
-    await msg.edit("» ʙᴏᴛ ʀᴇsᴛᴀʀᴛᴇᴅ...\n» ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴛʜɪs ʙᴏᴛ ᴀғᴛᴇʀ 𝟷 ᴍɪɴᴜᴛᴇ ")
-    execle(sys.executable, *args, environ)
-    return

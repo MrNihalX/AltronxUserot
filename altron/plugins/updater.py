@@ -4,15 +4,9 @@ from os import system, execle, environ
 from git.exc import InvalidGitRepositoryError
 from pyrogram.types import Message
 from pyrogram import filters, Client
-from config import UPSTREAM_REPO, SUDO_USERS
+from config import UPSTREAM_REPO, UPSTREAM_BRANCH, OWNER_ID
+from altron.modules.helpers.filters import command
 
-__MODULE__ = "Uᴘᴅᴀᴛᴇ"
-__HELP__ = f"""
-**🖤 Uᴘᴅᴀᴛᴇ Mᴏᴅᴜʟᴇ 🖤**
-
-`!update` - __Tᴏ Uᴘᴅᴀᴛᴇ Aʟᴛʀᴏɴ Usᴇʀʙᴏᴛ__
-
-"""
 
 def gen_chlog(repo, diff):
     upstream_repo_url = Repo().remotes[0].config_reader.get("url").replace(".git", "")
@@ -40,9 +34,9 @@ def updater():
         repo = Repo.init()
         origin = repo.create_remote("upstream", UPSTREAM_REPO)
         origin.fetch()
-        repo.create_head("main", origin.refs.main)
-        repo.heads.main.set_tracking_branch(origin.refs.main)
-        repo.heads.main.checkout(True)
+        repo.create_head("UPSTREAM_BRANCH", origin.refs.UPSTREAM_BRANCH)
+        repo.heads.UPSTREAM_BRANCH.set_tracking_branch(origin.refs.UPSTREAM_BRANCH)
+        repo.heads.UPSTREAM_BRANCH.checkout(True)
     ac_br = repo.active_branch.name
     if "upstream" in repo.remotes:
         ups_rem = repo.remote("upstream")
@@ -53,16 +47,24 @@ def updater():
     return bool(changelog)
 
 
-@Client.on_message(filters.command(["update"], ["/", ".", "!"]) & filters.user(SUDO_USERS) & ~filters.edited)
-@Client.on_message(filters.command(["update"], ["/", ".", "!"]) & filters.user(1323020756) & ~filters.edited)
+@Client.on_message(command(["update"]) & filters.user(OWNER_ID) & ~filters.edited)
 async def update_bot(_, message: Message):
     chat_id = message.chat.id
-    msg = await message.reply("» ᴄʜᴇᴄᴋɪɴɢ ᴜᴘᴅᴀᴛᴇs...")
+    msg = await message.edit("**🥀 ᴄʜᴇᴄᴋɪɴɢ ᴜᴘᴅᴀᴛᴇs ✨ ...**")
     update_avail = updater()
     if update_avail:
-        await msg.edit("»__ ᴜᴘᴅᴀᴛᴇ ғɪɴɪsʜᴇᴅ __\n» __ʙᴏᴛ ʀᴇsᴛᴀʀᴛɪɴɢ, ʙᴀᴄᴋ ᴀᴄᴛɪᴠᴇ ᴀɢᴀɪɴ ɪɴ 𝟹𝟶s __.")
+        await msg.edit("**🥀 Gᴇɴɪᴜs UsᴇʀBᴏᴛ Uᴘᴅᴀᴛᴇᴅ\nTᴏ Lᴀᴛᴇsᴛ Vᴇʀsɪᴏɴ 🔥 ...\n\n💕 Rᴇsᴛᴀʀᴛɪɴɢ: Gᴇɴɪᴜs Usᴇʀ\nBᴏᴛ, Pʟᴇᴀsᴇ » Wᴀɪᴛ ✨ ...**")
         system("git pull -f && pip3 install -U -r requirements.txt")
-        execle(sys.executable, sys.executable, "main.py", environ)
+        system("python3 -m altron")
         return
-    await msg.edit(f"__» ᴀʟʀᴇᴀᴅʏ ᴜᴘᴅᴀᴛᴇᴅ ʙʏ ᴀʟᴛʀᴏɴ __")
+    await msg.edit(f"**🥀 Gᴇɴɪᴜs UsᴇʀBᴏᴛ Aʟʀᴇᴀᴅʏ\nUᴘᴅᴀᴛᴇᴅ Tᴏ Lᴀᴛᴇsᴛ 🔥 ...\n\n💕 Fᴏʀ Aɴʏ Qᴜᴇʀʏ › Cᴏɴᴛᴀᴄᴛ Tᴏ » @Shailendra34 ...**")
 
+__MODULE__ = "Uᴘᴅᴀᴛᴇ"
+__HELP__ = f"""
+
+**Nᴏᴛᴇ:**
+**🥀 Tʜɪs Pʟᴜɢɪɴ Fᴏʀ Uᴘᴅᴀᴛᴇ Yᴏᴜʀ Usᴇʀ Bᴏᴛ**
+
+**🇮🇳 Cᴏᴍᴍᴀɴᴅ :**
+`.update` - __Tᴏ Uᴘᴅᴀᴛᴇ Gᴇɴɪᴜs UsᴇʀBᴏᴛ Tᴏ Lᴀᴛᴇsᴛ Vᴇʀsɪᴏɴ ...__
+"""

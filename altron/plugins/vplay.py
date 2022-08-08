@@ -1,6 +1,7 @@
 import asyncio
-from helpers.command import commandpro
-from helpers.decorators import errors, sudo_users_only
+from altron.modules.helpers.command import commandpro
+from altron.modules.helpers.decorators import errors, sudo_users_only
+from altron.modules.client import *
 from pyrogram.types import Message
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioVideoPiped
@@ -11,8 +12,8 @@ from pytgcalls.types.input_stream.quality import (
     MediumQualityVideo,
 )
 from youtubesearchpython import VideosSearch
-from config import client, call_py, HEROKU_MODE
-from helpers.queues import QUEUE, add_to_queue, get_queue
+from config import HEROKU_MODE
+from altron.modules.helpers.queues import QUEUE, add_to_queue, get_queue
 
 
 __MODULE__ = "PʟᴀʏFʀᴏᴍ"

@@ -1,15 +1,15 @@
 import asyncio
 import random
-from helpers.command import commandpro
-from helpers.handlers import bash
-from helpers.decorators import errors, sudo_users_only
+from altron.modules.helpers.command import commandpro
+from altron.modules.helpers.handlers import bash
+from altron.modules.helpers.decorators import errors, sudo_users_only
 from pyrogram.types import Message
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio
 from youtubesearchpython import VideosSearch
-from config import client, call_py
-from helpers.queues import QUEUE, add_to_queue, get_queue
+from altron.modules.client import client1 as client, call_py1 as call_py
+from altron.modules.helpers.queues import QUEUE, add_to_queue, get_queue
 
 
 __MODULE__ = "Pʟᴀʏ"

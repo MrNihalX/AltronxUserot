@@ -1,50 +1,58 @@
-from pyrogram.types import *
+from pyrogram import filters, Client
+from traceback import format_exc
+from typing import Tuple
 import asyncio
-from random import choice
-from pyrogram import Client, filters
-from helpers.data import *
+import random
+from pyrogram.errors import FloodWait, MessageNotModified
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    Message)
 from config import *
+from altron.utilities.data import *
+from altron.utilities.mongo import * 
 
 
-@Client.on_message(filters.user(SUDO_USERS) & filters.command(["raid"], [".", "/", "!"]))
-async def dmraid(xspam: Client, e: Message):
-      hero = await e.reply_text("⚡ ᴜsᴀɢᴇ:\n !raid 10 <ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ ᴏʀ ᴜsᴇʀɴᴀᴍᴇ>")   
-      TheAltronX = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
-      if len(TheAltronX) == 2:
-          ok = await xspam.get_users(TheAltronX[1])
-          id = ok.id
-          if int(id) in VERIFIED_USERS:
-                text = f"`ᴠᴇʀɪғɪᴇᴅ ʙʏ ᴀʟᴛʀᴏɴ x`"
-                await e.reply_text(text)
-          elif int(id) in SUDO_USERS:
-                text = f"`ᴛʜɪs ᴘᴇʀsᴏɴ ɪs ᴍʏ sᴜᴅᴏ ᴜsᴇʀ`"
-                await e.reply_text(text)
-          else:
-              counts = int(TheAltronX[0])
-              omp = await hero.edit_text("`ʀᴀɪᴅ sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ`")
-              await omp.delete()
-              for _ in range(counts):
-                    reply = choice(RAID)
-                    msg = f"[{ok.first_name}](tg://user?id={ok.id}) {reply}"
-                    await xspam.send_message(e.chat.id, msg)
-                    await asyncio.sleep(0.001)
-      elif e.reply_to_message:
-          user_id = e.reply_to_message.from_user.id
-          ok = await xspam.get_users(user_id)
-          id = e.chat.id
-          if int(id) in VERIFIED_USERS:
-                text = f"`ᴠᴇʀɪғɪᴇᴅ ʙʏ ᴀʟᴛʀᴏɴ x`"
-                await e.reply_text(text)
-          elif int(id) in SUDO_USERS:
-                text = f"`ᴛʜɪs ᴘᴇʀsᴏɴ ɪs ᴍʏ sᴜᴅᴏ ᴜsᴇʀ`"
-                await e.reply_text(text)
-          else:
-              counts = int(TheAltronX[0])
-              omp = await hero.edit_text("`ʀᴀɪᴅ sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ`")
-              await omp.delete()
-              for _ in range(counts):
-                    reply = choice(RAID)
-                    msg = f"[{ok.first_name}](tg://user?id={ok.id}) {reply}"
-                    await xspam.send_message(e.chat.id, msg)
-                    await asyncio.sleep(0.001)
+@Client.on_message( ~filters.me & filters.incoming)
+async def watch_raids(client: Client, message: Message):
+    if not message:
+        return
+    if not message.from_user:
+        return
+    user = message.from_user.id
+    veer = random.choice(REPLY_RAID)
+    love = random.choice(LOVER_RAID)
+    if int(user) in VERIFIED_USERS:
+        return
+    elif int(user) in SUDO_USERS:
+        return
+    if int(message.chat.id) in GROUP:
+        return
+    if await veerub_info(user):
+        try:
+            await message.reply_text(veer)
+        except:
+            return
+    if await loveub_info(user):
+        try:
+            await message.reply_text(love)
+        except:
+            return
 
+
+
+
+__MODULE__ = "Rᴀɪᴅ"
+__HELP__ = f"""
+**🥀 Lᴏᴠᴇ Rᴀɪᴅ & Rᴇᴘʟʏ Rᴀɪᴅ ✨**
+
+**ᴜsᴀɢᴇ:**
+`.lraid` - ** Rᴇᴘʟʏ Tᴏ Aɴʏᴏɴᴇ Wɪᴛʜ Tʜɪs Cᴏᴍᴍᴀɴᴅ Tᴏ Aᴄᴛɪᴠᴀᴛᴇ Lᴏᴠᴇ Rᴀɪᴅ.**
+
+`.dlraid` - ** Rᴇᴘʟʏ Tᴏ Aɴʏᴏɴᴇ Wɪᴛʜ Tʜɪs Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴇ-Aᴄᴛɪᴠᴀᴛᴇ Lᴏᴠᴇ Rᴀɪᴅ.**
+
+`.rraid` - ** Rᴇᴘʟʏ Tᴏ Aɴʏᴏɴᴇ Wɪᴛʜ Tʜɪs Cᴏᴍᴍᴀɴᴅ Tᴏ Aᴄᴛɪᴠᴀᴛᴇ Rᴇᴘʟʏ Rᴀɪᴅ.**
+
+`.drraid` - ** Rᴇᴘʟʏ Tᴏ Aɴʏᴏɴᴇ Wɪᴛʜ Tʜɪs Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴇ-Aᴄᴛɪᴠᴀᴛᴇ Rᴇᴘʟʏ Rᴀɪᴅ.**
+"""

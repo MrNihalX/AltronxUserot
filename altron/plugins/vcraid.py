@@ -10,9 +10,8 @@ from pyrogram.types import Message
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio
-from helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
-
-from config import bot, client, call_py, call_py2, call_py3, call_py4, call_py5, SUDO_USERS
+from altron.modules.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
+from altron.modules.client import bot, client1 as client, call_py1 as call_py, call_py2, call_py3, call_py4, call_py5, SUDO_USERS
 
 
 __MODULE__ = "VC Rᴀɪᴅ"
@@ -32,11 +31,11 @@ __HELP__ = f"""
 """
 
 aud_list = [
-    "./helpers/AUDIO1.mp3",
-    "./helpers/AUDIO2.mp3",
-    "./helpers/AUDIO3.mp3",
-    "./helpers/AUDIO4.mp3",
-    "./helpers/AUDIO5.mp3",
+    "./altron/recording/AUDIO1",
+    "./altron/recording/AUDIO2",
+    "./altron/recording/AUDIO3",
+    "./altron/recording/AUDIO4",
+    "./altron/recording/AUDIO5",
 ]
 
 @bot.on_message(filters.user(SUDO_USERS) & filters.command(["vcraid"], ["/", "$", ".", "!"]))

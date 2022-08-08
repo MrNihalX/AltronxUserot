@@ -1,10 +1,10 @@
 from pyrogram import Client
 from pyrogram.types import Message
-from helpers.command import commandpro
-from config import call_py
-from helpers.decorators import errors, sudo_users_only
-from helpers.handlers import skip_current_song, skip_item
-from helpers.queues import QUEUE, clear_queue
+from altron.modules.helpers.command import commandpro
+from altron.modules.client import call_py1 as call_py
+from altron.modules.helpers.decorators import errors, sudo_users_only
+from altron.utilities.utils import skip_current_song, skip_item
+from altron.modules.helpers.queues import QUEUE, clear_queue
 
 
 @Client.on_message(commandpro(["!skip", ".skip", "!s", "/skip", "/s", "S", "Skip", "Next"]))
