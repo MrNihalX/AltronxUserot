@@ -1,5 +1,4 @@
 import asyncio
-from altron.utilities import mongodb
 from altron.modules.helpers.queues import QUEUE, clear_queue, get_queue, pop_an_item
 from altron.modules.client import client1 as app, call_py1 as call_py
 from pytgcalls.types import Update
@@ -11,33 +10,6 @@ from pytgcalls.types.input_stream.quality import (
     MediumQualityVideo,
 )
 from pytgcalls.types.stream import StreamAudioEnded
-
-
-sudoersdb = mongodb.sudoers
-
-async def get_sudoers() -> list:
-    sudoers = await sudoersdb.find_one({"sudo": "sudo"})
-    if not sudoers:
-        return []
-    return sudoers["sudoers"]
-
-
-async def add_sudo(user_id: int) -> bool:
-    sudoers = await get_sudoers()
-    sudoers.append(user_id)
-    await sudoersdb.update_one(
-        {"sudo": "sudo"}, {"$set": {"sudoers": sudoers}}, upsert=True
-    )
-    return True
-
-
-async def remove_sudo(user_id: int) -> bool:
-    sudoers = await get_sudoers()
-    sudoers.remove(user_id)
-    await sudoersdb.update_one(
-        {"sudo": "sudo"}, {"$set": {"sudoers": sudoers}}, upsert=True
-    )
-    return True
 
 
 
