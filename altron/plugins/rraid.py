@@ -2,19 +2,12 @@ import random
 from typing import Tuple
 from pyrogram import *
 from traceback import format_exc
-from config import SUDO_USERS
 from altron.utilities.data import *
 from altron.modules.helpers.filters import command
 from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
-    Message)
+from pyrogram.types import *
 from altron.modules.database.mongo import veerub_info, rveer, runveer
 from altron.utilities.misc import SUDOERS
-
-
 
 
 async def iter_chats(client: Client):
@@ -95,12 +88,13 @@ def get_text(message: Message) -> [None, str]:
 
 @Client.on_message(command(["replyraid", "rraid", "rr"]) & SUDOERS)
 async def replyramd(client: Client, message: Message):
+    await message.delete()
     veer = await message.reply_text("`Processing..`")
     text_ = get_text(message)
     user, reason = get_user(message, text_)
     failed = 0
     if not user:
-        await veer.edit("`Reply To User Or Mention To Activate Replyraid `")
+        await veer.edit("`Reply To User Or Mention To Activate ReplyRaid `")
         return
     try:
         userz = await client.get_users(user)
@@ -111,13 +105,10 @@ async def replyramd(client: Client, message: Message):
         reason = "Private Reason!"
     mee= await client.get_me()
     if userz.id == mee.id:
-        await veer.edit("`Jaa Na Lawde Kahe Dimag Kha rha? Khudpe Raid kyu laga rha?`")
+        await veer.edit("`Jaa Na Tharki Kahe Dimag Kha rha? Khudpe Raid kyu laga rha?`")
         return
     if await veerub_info(userz.id):
-        await veer.edit("`Who So Noob? Reply Raid Already Activated on that User:/`")
-        return
-    if int(userz.id) in SUDO_USERS:
-        await veer.edit("Abe Lawde that guy part of my devs.")
+        await veer.edit("`Who So Noob? ReplyRaid Already Activated on that User:/`")
         return
     await veer.edit("`Please, Wait Fectching Using Details!`")
     chat_dict = await iter_chats(client)
@@ -125,20 +116,21 @@ async def replyramd(client: Client, message: Message):
     if not chat_dict:
         veer.edit("`You Have No Chats! So Sad`")
         return
-    await veer.edit("`Activating Replyraid....!`")
+    await veer.edit("`Activating ReplyRaid....!`")
     await rveer(userz.id, reason)
-    gbanned = f"Reply Raid has Been Activated On {userz.first_name}"
+    gbanned = f"ReplyRaid has Been Activated On {userz.first_name}"
     await veer.edit(gbanned)
     
 
 @Client.on_message(command(["dreplyraid", "drraid", "drr"]) & SUDOERS)
 async def dreplyramd(client: Client, message: Message):
+    await message.delete()
     veer = await message.reply_text("`Processing..`")
     text_ = get_text(message)
     user = get_user(message, text_)[0]
     failed = 0
     if not user:
-        await veer.edit("`Reply To User Or Mention To Deactivate Replyraid`")
+        await veer.edit("`Reply To User Or Mention To Deactivate ReplyRaid`")
         return
     try:
         userz = await client.get_users(user)
@@ -147,10 +139,10 @@ async def dreplyramd(client: Client, message: Message):
         return
     mee= await client.get_me()
     if userz.id == mee.id:
-        await veer.edit("`Soja Lomde`")
+        await veer.edit("`Soja Tharki`")
         return
     if not await veerub_info(userz.id):
-        await veer.edit("`When I Replyraid Activated? On That User?:/`")
+        await veer.edit("`When I ReplyRaid Activated? On That User?:/`")
         return
     await veer.edit("`Please, Wait Fectching User details!`")
     chat_dict = await iter_chats(client)
@@ -158,7 +150,8 @@ async def dreplyramd(client: Client, message: Message):
     if not chat_dict:
         veer.edit("`You Have No Chats! So Sad`")
         return
-    await veer.edit("`De-Activating Replyraid Raid....!`")
+    await veer.edit("`De-Activating ReplyRaid Raid....!`")
     await runveer(userz.id)
-    ungbanned = f"**De-activated Replyraid Raid [{userz.first_name}](tg://user?id={userz.id})"
+    ungbanned = f"**De-activated ReplyRaid Raid [{userz.first_name}](tg://user?id={userz.id})"
     await veer.edit(ungbanned)
+
