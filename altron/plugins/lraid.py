@@ -10,7 +10,7 @@ from pyrogram.types import (
     InlineQueryResultArticle,
     InputTextMessageContent,
     Message)
-from altron.utilities.mongo import loveub_info, rlove, runlove
+from altron.modules.database.mongo import loveub_info, rlove, runlove
 from altron.modules.helpers.decorators import errors, sudo_users_only
 from altron.utilities.misc import SUDOERS
 
