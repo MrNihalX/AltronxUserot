@@ -11,7 +11,7 @@ from pyrogram.types import (
     InlineQueryResultArticle,
     InputTextMessageContent,
     Message)
-from altron.utilities.mongo import veerub_info, rveer, runveer
+from altron.modules.database.mongo import veerub_info, rveer, runveer
 from altron.utilities.misc import SUDOERS
 
 
