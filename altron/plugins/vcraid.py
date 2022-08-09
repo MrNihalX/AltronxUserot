@@ -81,11 +81,11 @@ async def vcraid(_, e: Message):
     inp = e.text.split(None, 2)[1]
     chat = await client.get_chat(inp)
     chat_id = chat.id
-    replied = e.reply_to_message
+    replied = m.reply_to_message
     if inp:
         bot = await hero.edit_text("» __sᴛᴀʀᴛɪɴɢ ʀᴀɪᴅ__")
-        link = f"https://github.com/TheAltron{aud[1:]}"
-        dl = aud
+        link = replied.link
+        dl = await replied.download()
         if replied.audio:
             if replied.audio.title:
                 songname = replied.audio.title[:35] + "..."
