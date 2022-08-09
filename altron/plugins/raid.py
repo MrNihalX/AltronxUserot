@@ -11,7 +11,7 @@ from pyrogram.types import (
     Message)
 from config import *
 from altron.utilities.data import *
-from altron.utilities.mongo import * 
+from altron.modules.database.mongo import * 
 
 
 @Client.on_message( ~filters.me & filters.incoming)
