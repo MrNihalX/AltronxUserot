@@ -155,7 +155,7 @@ Yᴏᴜʀ Oᴡɴ » Gᴇɴɪᴜs Usᴇʀ Bᴏᴛ.
 @bot.on_message(command(["help"]) & SUDOERS)
 async def help_command(_, message):
     text, keyboard = await help_parser(message.from_user.mention)
-    await bot.send_message(text, reply_markup=keyboard)
+    await bot.send_message(message.chat.id, text, reply_markup=keyboard)
 
 
 
