@@ -5,9 +5,9 @@ from pyrogram import *
 
 
 @client1.on_message(filters.command(["startvc"]))
-async def _(client, m:Message):
+async def _(c:client1, m:Message):
     try:
-        await client.CreateGroupCall(m.chat_id))
+        await c.CreateGroupCall(m.chat_id)
         await m.reply_text("**🔊 Voice Chat Started Successfully**")
     except
         pass
