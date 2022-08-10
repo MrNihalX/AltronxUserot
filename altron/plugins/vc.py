@@ -1,6 +1,6 @@
 from altron.modules.client import *
 from pyrogram.raw.functions.phone import CreateGroupCall
-from pyrogram.types import Message as m
+from pyrogram.types import Message
 from pyrogram import *
 
 
