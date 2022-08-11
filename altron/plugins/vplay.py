@@ -12,7 +12,7 @@ from pytgcalls.types.input_stream.quality import (
     MediumQualityVideo,
 )
 from youtubesearchpython import VideosSearch
-from config import HEROKU_MODE
+from altron.config import HEROKU_MODE
 from altron.modules.helpers.queues import QUEUE, add_to_queue, get_queue
 
 
