@@ -9,7 +9,7 @@ from pyrogram.types import (
     InlineQueryResultArticle,
     InputTextMessageContent,
     Message)
-from config import *
+from altron.config import *
 from altron.utilities.data import *
 from altron.modules.database.mongo import * 
 
