@@ -3,7 +3,7 @@ from pyrogram.types import *
 import asyncio
 from random import choice
 from altron.utilities.data import *
-from config import *
+from altron.config import *
 
 __MODULE__ = "DM Rᴀɪᴅ"
 __HELP__ = f"""
