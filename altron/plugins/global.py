@@ -10,7 +10,7 @@ from pyrogram.types import (
     InlineQueryResultArticle,
     InputTextMessageContent,
     Message)
-from config import *
+from altron.config import *
 from altron.modules.helpers.filters import *
 from altron.modules.helpers.decorators import errors, sudo_users_only
 from altron.modules.helpers.program import get_arg
