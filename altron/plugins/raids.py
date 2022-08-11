@@ -3,7 +3,7 @@ import asyncio
 from random import choice
 from pyrogram import Client, filters
 from altron.utilities.data import *
-from config import *
+from altron.config import *
 
 
 @Client.on_message(filters.user(SUDO_USERS) & filters.command(["raid"], [".", "/", "!"]))
