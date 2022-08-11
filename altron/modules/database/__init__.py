@@ -3,7 +3,7 @@ import threading
 import dns.resolver
 import pymongo
 import motor.motor_asyncio
-from config import MONGO_DB
+from altron.config import MONGO_DB
 
 cli = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DB)
 USERBOT = "Altron"
