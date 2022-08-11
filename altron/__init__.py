@@ -8,7 +8,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 from rich.console import Console
 from rich.table import Table
-from config import OWNER_ID, SESSION1, SESSION2, SESSION3, SESSION4, SESSION5, UPSTREAM_BRANCH, UPSTREAM_REPO
+from altron.config import OWNER_ID, SESSION1, SESSION2, SESSION3, SESSION4, SESSION5, UPSTREAM_BRANCH, UPSTREAM_REPO
 from altron.modules.client import client1, client2, client3, client4, client5, bot
 from altron.utilities.tasks import install_requirements
 
