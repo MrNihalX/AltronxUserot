@@ -1,4 +1,4 @@
-from config import *
+from altron.config import *
 from pyrogram import *
 
 
