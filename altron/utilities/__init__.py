@@ -1,7 +1,7 @@
 from altron.modules.database import cli
 from pymongo import MongoClient
 from pyrogram import Client
-from config import *
+from altron.config import *
 from ..logger import LOGGER
 
 
