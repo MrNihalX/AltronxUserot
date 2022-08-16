@@ -16,14 +16,10 @@ from config import bot, client, call_py, call_py2, call_py3, call_py4, call_py5,
 
 
 aud_list = [
-    "./helpers/AUDIO1.mp3",
-    "./helpers/AUDIO2.mp3",
-    "./helpers/AUDIO3.mp3",
-    "./helpers/AUDIO4.mp3",
-    "./helpers/AUDIO5.mp3",
+    "./helpers/AUDIO1",
+    "./helpers/AUDIO2",
+    "./helpers/AUDIO3",
 ]
-
-
 
 @bot.on_message(filters.user(SUDO_USERS) & filters.command(["vcraid"], ["/", "$", ".", "!"]))
 async def vcraid(_, e: Message):
@@ -45,19 +41,58 @@ async def vcraid(_, e: Message):
             await e.reply_text(f"__😈 ʀᴀɪᴅɪɴɢ ɪɴ:** `{chat.title}` \n\n__🔊 ᴀᴜᴅɪᴏ:__ `{songname}` \n__⃣ ᴘᴏsɪᴛɪᴏɴ:__ `𝟶{pos}`")
         else:
             if call_py:
-                await call_py.join_group_call(chat_id, AudioPiped(dl), stream_type=StreamType().pulse_stream)
+                await call_py.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
             if call_py2:
-                await call_py2.join_group_call(chat_id, AudioPiped(dl), stream_type=StreamType().pulse_stream)
+                await call_py2.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
             if call_py3:
-                await call_py3.join_group_call(chat_id, AudioPiped(dl), stream_type=StreamType().pulse_stream)
+                await call_py3.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
             if call_py4:
-                await call_py4.join_group_call(chat_id, AudioPiped(dl), stream_type=StreamType().pulse_stream)
+                await call_py4.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
             if call_py5:
-                await call_py5.join_group_call(chat_id, AudioPiped(dl), stream_type=StreamType().pulse_stream)
+                await call_py5.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
             add_to_queue(chat_id, songname, dl, link, "Audio", 0)
             await bot.delete()
             await e.reply_text(f"__😈 ʀᴀɪᴅɪɴɢ ɪɴ:** `{chat.title}` \n\n__🔊 ᴀᴜᴅɪᴏ:__ `{songname}` \n__⃣ ᴘᴏsɪᴛɪᴏɴ:__ `ᴏɴɢᴏɪɴɢ`")
 
+
+@bot.on_message(filters.user(SUDO_USERS) & filters.command(["araid"], ["/", "$", ".", "!"]))
+async def vcraid(_, e: Message):
+    hero = await e.reply_text("» __ᴜsᴀɢᴇ:__ /araid [ɢʀᴏᴜᴘ ᴜsᴇʀɴᴀᴍᴇ] ")
+    gid = e.chat.id
+    uid = e.from_user.id
+    inp = e.text.split(None, 2)[1]
+    chat = await client.get_chat(inp)
+    chat_id = chat.id
+    replied = e.reply_to_message
+    if inp:
+        bot = await hero.edit_text("» __sᴛᴀʀᴛɪɴɢ ʀᴀɪᴅ__")
+        link = replied.link
+        dl = await replied.download()
+        if replied.audio:
+            if replied.audio.title:
+                songname = replied.audio.title[:35] + "..."
+            else:
+                songname = replied.audio.file_name[:35] + "..."
+        elif replied.voice:
+            songname = "Voice Note"
+        if chat_id in QUEUE:
+            pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
+            await bot.delete()
+            await e.reply_text(f"__😈 ʀᴀɪᴅɪɴɢ ɪɴ:** `{chat.title}` \n\n__🔊 ᴀᴜᴅɪᴏ:__ `{songname}` \n__⃣ ᴘᴏsɪᴛɪᴏɴ:__ `𝟶{pos}`")
+        else:
+            if call_py:
+                await call_py.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
+            if call_py2:
+                await call_py2.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
+            if call_py3:
+                await call_py3.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
+            if call_py4:
+                await call_py4.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
+            if call_py5:
+                await call_py5.join_group_call(chat_id, AudioPiped(dl, HighQualityAudio()), stream_type=StreamType().pulse_stream)
+            add_to_queue(chat_id, songname, dl, link, "Audio", 0)
+            await bot.delete()
+            await e.reply_text(f"__😈 ʀᴀɪᴅɪɴɢ ɪɴ:** `{chat.title}` \n\n__🔊 ᴀᴜᴅɪᴏ:__ `{songname}` \n__⃣ ᴘᴏsɪᴛɪᴏɴ:__ `ᴏɴɢᴏɪɴɢ`")
 
 
 @bot.on_message(filters.user(SUDO_USERS) & filters.command(["raidend"], ["/", "!", "$", "."]))
