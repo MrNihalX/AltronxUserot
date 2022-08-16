@@ -2,11 +2,11 @@ import asyncio
 from config import client
 from config import *
 from pyrogram.types import Message
-from pyrogram import filters
+from pyrogram import filters, Client
 
 
 @client.on_message(filters.user(SUDO_USERS) & filters.command(["hack"], ["/", "$", ".", "!"]))
-async def hack_func(message):
+async def hack_func(client: Client, Message: message):
     user = await message.client.get_user_dict(message.from_user.id)
     heckerman = user['mention']
     animation_chars = [
