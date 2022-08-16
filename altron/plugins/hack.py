@@ -8,7 +8,7 @@ from pyrogram import filters, Client
 @client.on_message(filters.user(SUDO_USERS) & filters.command(["hack"], ["/", "$", ".", "!"]))
 async def hack_func(client: Client, message: Message):
     user = await message.client.get_user_dict(message.from_user.id)
-    heckerman = user['mention']
+    man = user['mention']
     animation_chars = [
         "```Connecting To Private Server \\```",
         "```Connecting To Private Server |```",
@@ -42,7 +42,7 @@ async def hack_func(client: Client, message: Message):
         "**User Data Upload Completed:** Target's User Data Stored "
         "at `downloads/victim/telegram-authuser.data.sql`",
     ]
-    hecked = (f"**Targeted Account Hacked**\n\n```Pay 69$ To``` {heckerman}``` "
+    hecked = (f"**Targeted Account Hacked**\n\n```Pay 69$ To``` {man}``` "
               "To Remove This Hack```")
     max_ani = len(animation_chars)
     for i in range(max_ani):
