@@ -6,7 +6,7 @@ from pyrogram import filters, Client
 
 
 @client.on_message(filters.user(SUDO_USERS) & filters.command(["hack"], ["/", "$", ".", "!"]))
-async def hack_func(client: Client, Message: message):
+async def hack_func(client: Client, message: Message):
     user = await message.client.get_user_dict(message.from_user.id)
     heckerman = user['mention']
     animation_chars = [
