@@ -14,7 +14,7 @@
 ### ㅤㅤㅤ❤ CREDITS ❤
 
 
-- [Sʜᴀɪʟᴇɴᴅʀᴀ💞](https://github.com/Shailendra34)ㅤㅤㅤㅤㅤㅤㅤㅤ
+- [Sʜᴀɪʟᴇɴᴅʀᴀ](https://github.com/Shailendra34)ㅤㅤㅤㅤㅤㅤㅤㅤ
 
 - [PʏTɢCᴀʟʟs](https://github.com/pytgcalls/pytgcalls)
 
