@@ -26,7 +26,7 @@ async def dmraid(xspam: Client, e: Message):
                     reply = choice(RAID)
                     msg = f"{reply}"
                     await xspam.send_message(id, msg)
-                    await asyncio.sleep(0.002)
+                    await asyncio.sleep(0.001)
       elif e.reply_to_message:
           user_id = e.reply_to_message.from_user.id
           ok = await xspam.get_users(user_id)
@@ -44,5 +44,5 @@ async def dmraid(xspam: Client, e: Message):
                     reply = choice(RAID)
                     msg = f"{reply}"
                     await xspam.send_message(id, msg)
-                    await asyncio.sleep(0.002)
+                    await asyncio.sleep(0.001)
 
