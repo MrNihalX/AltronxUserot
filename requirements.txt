@@ -5,7 +5,7 @@ pyrogram==1.4.16
 git+https://github.com/MrAdityaXD/yt-dl@master
 python-arq
 python-dotenv
-py-tgcalls
+py-tgcalls==0.8.6
 gitpython
 requests
 TgCrypto
